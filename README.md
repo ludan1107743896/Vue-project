@@ -16,35 +16,9 @@
     <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
   </a>
 
-基于 Vue + Element UI 的后台管理系统解决方案。[线上地址](https://lin-xin.gitee.io/example/work/)
+基于 Vue + Element UI 的后台管理系统解决方案。
 
-> React + Ant Design 的版本正在开发中，仓库地址：[react-manage-system](https://github.com/lin-xin/react-manage-system)
-
-[English document](https://github.com/lin-xin/manage-system/blob/master/README_EN.md)
-
-## 项目截图
-
-### 登录
-
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms3.png)
-
-### 默认皮肤
-
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms1.png)
-
-### 浅绿色皮肤
-
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms2.png)
-
-## 赞赏
-
-请作者喝杯咖啡吧！(微信号：linxin_20)
-
-![微信扫一扫](https://lin-xin.gitee.io/images/weixin.jpg)
-
-## 特别鸣谢
-
-- [实验楼](https://www.shiyanlou.com?source=vue-manage-system)
+> React + Ant Design 的版本正在开发中，仓库地址：[Vue-project](https://github.com/ludan1107743896/Vue-project)
 
 ## 前言
 
@@ -192,6 +166,3 @@ import 'element-ui/lib/theme-default/index.css'; // 默认主题
 
 第三步：打开 src/components/common/Sidebar.vue 文件，找到 el-menu 标签，把 background-color/text-color/active-text-color 属性去掉即可。
 
-## License
-
-[MIT](https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE)
