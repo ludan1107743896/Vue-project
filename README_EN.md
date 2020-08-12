@@ -18,9 +18,6 @@
 
 The web management system solution based on Vue2 and Element-UI。[live demo](https://lin-xin.gitee.io/example/work/)
 
-## Donation
-
-![WeChat](https://lin-xin.gitee.io/images/weixin.jpg)
 
 ## Preface
 
