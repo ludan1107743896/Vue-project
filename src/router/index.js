@@ -107,6 +107,11 @@ export default new Router({
                     component: () => import('../components/page/403.vue'),
                     meta: { title: '403' }
                 },
+                {
+                    path: '/management',
+                    meta: {title: '业务界面1'},
+                    component: () => import('../components/page/pagesComponent/index.vue')
+                }
             ]
         },
         {

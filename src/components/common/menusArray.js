@@ -99,6 +99,10 @@ export default [
             {
                 index: '404',
                 title: '404页面'
+            },
+            {
+                index: "management",
+                title: '业务界面1'
             }
         ]
     },
