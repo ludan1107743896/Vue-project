@@ -9,6 +9,7 @@
         </div>
         <div class="container">
             <el-tabs v-model="activeName" type="card" @tab-click="handleClick" class="tab-box">
+                <serch-components @handleSearch="handleSearch" @handleSubmitAdd="handleSubmitAdd"/>
                 <el-tab-pane label="用户管理" name="Basicplan">
                     <el-table :data="tableData" style="width: 100%">
                         <el-table-column prop="code" label="code"></el-table-column>
@@ -90,14 +91,15 @@
 
 <script>
 import moment from 'moment';
-
+import serchComponents from './serchComponents'
+import { v4 } from 'uuid';
 export default {
     data() {
         return {
             activeName: 'Basicplan',
             dialogFormVisible: false,
             formLabelWidth: '120px',
-            pageTotal:1,
+            pageTotal: 3,
             query: {
                 pageIndex: 1,
                 pageSize: 10
@@ -115,9 +117,26 @@ export default {
                     lastUpdate: '2020-2-9',
                     relese: 'true',
                     id: '1'
+                },
+                {
+                    code: '123457',
+                    name: '小万把',
+                    lastUpdate: '2020-2-9',
+                    relese: 'true',
+                    id: '2'
+                },
+                {
+                    code: '123789',
+                    name: '小王八',
+                    lastUpdate: '2020-2-9',
+                    relese: 'true',
+                    id: '3'
                 }
             ]
         };
+    },
+    components: {
+        serchComponents
     },
     methods: {
         handleClick() {},
@@ -153,7 +172,17 @@ export default {
                     k.relese = 'false'
                 }
             })
-        }
+        },
+        handleSearch(item) {
+           this.tableData = this.tableData.filter(k => {
+                if (k.code == item.code || k.name == item.name) {
+                    return k;
+                }
+            })
+        },
+        handleSubmitAdd(item) {
+            this.tableData.push({...item, id: v4()})
+        } 
     }
 };
 </script>
