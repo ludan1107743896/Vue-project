@@ -100,10 +100,17 @@ export default [
                 index: '404',
                 title: '404页面'
             },
+        ]
+    },
+    {
+        icon: 'el-icon-s-shop',
+        index: '8',
+        title: '常用业务场景',
+        subs: [
             {
                 index: "management",
                 title: '业务界面1'
             }
         ]
-    },
+    }
 ]
