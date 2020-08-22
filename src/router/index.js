@@ -111,6 +111,11 @@ export default new Router({
                     path: '/management',
                     meta: {title: '业务界面1'},
                     component: () => import('../components/page/pagesComponent/index.vue')
+                },
+                {
+                    path: '/storeManagement',
+                    meta: {title: '商铺管理'},
+                    component: () => import('../components/page/storeManagement/index.vue')
                 }
             ]
         },
