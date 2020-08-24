@@ -27,12 +27,12 @@
                 </el-table-column>
             </el-table>
             <el-dialog title="编辑" :visible.sync="modalVsible">
-                <el-form :model="form">
+                <el-form :model="form" :rules="rules" ref="ruleForm">
                     <el-form-item label="名称" :label-width="formLabelWidth">
                         <el-input v-model="form.name" autocomplete="off" placeholder="请输入名称" />
                     </el-form-item>
                     <el-form-item label="位置" :label-width="formLabelWidth">
-                        <el-cascader v-model="value" :options="options" style="width: 100%;"></el-cascader>
+                        <el-cascader v-model="form.position" :options="options" style="width: 100%;"></el-cascader>
                     </el-form-item>
                     <el-form-item label="地址" :label-width="formLabelWidth">
                         <el-input v-model="form.address" autocomplete="off" placeholder="请输入地址" />
@@ -45,15 +45,15 @@
                             </el-col>
                             <el-col class="line" :span="2">-</el-col>
                             <el-col :span="11">
-                               <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+                               <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
                             </el-col>
                         </el-row>
                     </el-form-item>
                     <el-form-item label="面积" :label-width="formLabelWidth">
-                        <el-input-number controls-position="right" :min="1" style="width: 100%;"></el-input-number>
+                        <el-input-number v-model="form.measure" controls-position="right" :min="1" style="width: 100%;"></el-input-number>
                     </el-form-item>
                     <el-form-item label="电话" :label-width="formLabelWidth">
-                        <el-input autocomplete="off" placeholder="请输入电话" />
+                        <el-input autocomplete="off" v-model="form.phoneNum" placeholder="请输入电话" />
                     </el-form-item>
                     <el-form-item label="类型" :label-width="formLabelWidth">
                         <el-select
@@ -68,14 +68,16 @@
                     </el-form-item>
                     <el-form-item label="备注" :label-width="formLabelWidth">
                         <el-input
+                            v-model="form.mark"
                             type="textarea"
                             :rows="2"
                             placeholder="请输入备注">
                         </el-input>
                     </el-form-item>
 
-                    <el-form-item label="备注" :label-width="formLabelWidth">
+                    <el-form-item label="文件上传" :label-width="formLabelWidth">
                         <el-upload
+                            v-model="form.file"
                             class="upload-demo"
                             drag
                             action="https://jsonplaceholder.typicode.com/posts/"
@@ -98,16 +100,32 @@
 <script>
 import breadCrumb from './breadcrumb.vue';
 import tableSource from './tableSource';
+import moment from 'moment'
 export default {
     data() {
         return {
             title: ['首页', '商铺管理'],
             tableData: tableSource,
-            modalVsible: true,
+            modalVsible: false,
             formLabelWidth: '120px',
-            dialogItem: {},
             form: {
-                address: ''
+                name: '',
+                position: [],
+                address: '',
+                date1: '',
+                date2: '',
+                measure: '',
+                phoneNum: '',
+                relese: 'shengmei',
+                mark: '',
+                file: {}
+            },
+            rules: {
+                name: [{ required: true, message: '门店名称', trigger: 'blur' }],
+                address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
+                date1: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
+                date2: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
+                measure: [{ required: true, message: '请输入面积', trigger: 'change' }]
             },
             value: [],
             options: [
@@ -387,12 +405,23 @@ export default {
         handleRemove(item) {
             this.tableData = this.tableData.filter((k) => k.id !== item.id);
         },
-        handleEdit(item) {
-            console.log(item, '----item---');
+        handleEdit(item) {;
             this.modalVsible = true;
-            this.dialogItem = item;
+            this.form = item;
         },
-        handleOnok() {}
+        handleOnok() {
+            this.$refs['ruleForm'].validate((valid) => {
+                console.log(valid, '111')
+                if(valid){
+                    this.form.date1 = moment(this.form.data1).format('YYYY-MM-MM')
+                    this.form.date2 = moment(this.form.data2).format('YYYY-MM-MM')
+                    console.log(this.form)
+                    // this.modalVsible = false;
+                } else {
+                    return false;
+                }
+            })
+        }
     }
 };
 </script>
