@@ -1,4 +1,4 @@
-// import { userList } from '../../utils/config';
+import  config from '../../utils/config.js';
 let menuList = [];
 const menus = [
     {
@@ -139,9 +139,9 @@ const menus = [
         ]
     }
 ]
-const userList = ['ludan', 'lixiaozhan'];
-const _flag = userList.includes(localStorage.getItem('ms_username'));
-if(_flag){
+
+const _flag = config.userList.includes(localStorage.getItem('ms_username'));
+if(_flag && localStorage.getItem('ms_username') != 'admin'){
     menuList = menus.filter(k => k.jurisdiction == true);
 } else if (localStorage.getItem('ms_username') == 'admin') {
     menuList = menus;

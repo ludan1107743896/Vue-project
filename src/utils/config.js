@@ -1,3 +1,3 @@
 export default {
-    userList: ['ludan', 'lixiaozhan']
+    userList: ['ludan', 'lixiaozhan', 'admin']
 }
