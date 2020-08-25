@@ -28,24 +28,28 @@
             </el-table>
             <el-dialog title="编辑" :visible.sync="modalVsible">
                 <el-form :model="form" :rules="rules" ref="ruleForm">
-                    <el-form-item label="名称" :label-width="formLabelWidth">
+                    <el-form-item label="名称" :label-width="formLabelWidth" prop="name">
                         <el-input v-model="form.name" autocomplete="off" placeholder="请输入名称" />
                     </el-form-item>
-                    <el-form-item label="位置" :label-width="formLabelWidth">
+                    <el-form-item label="位置" :label-width="formLabelWidth" prop="position">
                         <el-cascader v-model="form.position" :options="options" style="width: 100%;"></el-cascader>
                     </el-form-item>
-                    <el-form-item label="地址" :label-width="formLabelWidth">
+                    <el-form-item label="地址" :label-width="formLabelWidth" prop="address">
                         <el-input v-model="form.address" autocomplete="off" placeholder="请输入地址" />
                     </el-form-item>
-                    <el-form-item label="活动时间" :label-width="formLabelWidth">
+                    <el-form-item label="活动时间" :label-width="formLabelWidth" required>
                         <el-row>
                             <el-col :span="11">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;">
-                                </el-date-picker>
+                                <el-form-item prop="date1">
+                                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;">
+                                    </el-date-picker>
+                                </el-form-item>
                             </el-col>
                             <el-col class="line" :span="2">-</el-col>
                             <el-col :span="11">
-                               <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
+                                <el-form-item prop="date2">
+                                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
+                                </el-form-item>
                             </el-col>
                         </el-row>
                     </el-form-item>
@@ -125,7 +129,8 @@ export default {
                 address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
                 date1: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
                 date2: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
-                measure: [{ required: true, message: '请输入面积', trigger: 'change' }]
+                measure: [{ required: true, message: '请输入面积', trigger: 'change' }],
+                position: [{ required: true, message: '请输入位置', trigger: 'blur' }],
             },
             value: [],
             options: [
