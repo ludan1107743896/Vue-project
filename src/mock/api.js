@@ -8,7 +8,14 @@ const getDataSource = (num, _obj, type) => {
     return _obj;
   } else {
     for (let i = 0; i< num; i++){
-      dataItem.push(_obj);
+      dataItem.push({
+        name: Random.cname(), 
+        date: Random.date(), 
+        city: Random.city(),
+        img: Random.image(), 
+        content: Random.cparagraph(),
+        id: Random.guid()
+      });
     }
   }
   return {data: dataItem};
