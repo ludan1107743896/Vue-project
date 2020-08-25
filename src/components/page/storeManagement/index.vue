@@ -5,9 +5,9 @@
             <el-row style=" margin-bottom: 23px;">
                 <el-col :span="8" :offset="16">
                     <el-button type="primary" @click="handleClickAdd">添加门店</el-button>
-                    <el-button type="primary">一键上线</el-button>
-                    <el-button type="primary">一键下线</el-button>
-                    <el-button type="primary">重置刷新</el-button>
+                    <el-button type="primary" @click="handleClickUpLine('')">一键上线</el-button>
+                    <el-button type="primary" @click="handleClickUpLine('S03')">一键下线</el-button>
+                    <el-button type="primary" @click="resetDataSource">重置刷新</el-button>
                 </el-col>
             </el-row>
             <el-table :data="tableData" style="width: 100%">
@@ -16,7 +16,9 @@
                 <el-table-column prop="status" label="状态">
                     <template slot-scope="scope">
                         <el-tag type="success" v-if="scope.row.status == 'S01'">已完善</el-tag>
-                        <el-tag type="danger" v-else>未完善</el-tag>
+                        <el-tag type="danger" v-else-if="scope.row == 'S02'">未完善</el-tag>
+                        <el-tag type="warning" v-else-if="scope.row == 'S03'">已下线</el-tag>
+                        <el-tag type="info" v-else>已上线</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column label="操作">
@@ -450,6 +452,13 @@ export default {
                 this.modalVsible = true;
                 this.addType = 'add';
             })
+        },
+        handleClickUpLine(type) {
+            this.tableData.map(k => k.status = type)
+        },
+        resetDataSource() {
+            console.log(tableSource, 'mmmmm')
+            this.tableData = tableSource;
         }
     }
 };
