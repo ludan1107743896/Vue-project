@@ -45,9 +45,14 @@ export default {
         submitForm() {
             this.$refs.login.validate(valid => {
                 if (valid) {
-                    this.$message.success('登录成功');
-                    localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/dashboard');
+                    const userName = this.param.username
+                    localStorage.setItem('ms_username', userName);
+                    if (userName == 'admin'|| userName == 'ludan' || userName == "lixiaozhan"){
+                        this.$message.success('登录成功');
+                        window.location.href = `${window.location.origin}/storeManagement`
+                    } else {
+                        this.$router.push('/login');
+                    }
                 } else {
                     this.$message.error('请输入账号和密码');
                     console.log('error submit!!');

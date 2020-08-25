@@ -1,8 +1,11 @@
-export default [
+// import { userList } from '../../utils/config';
+let menuList = [];
+const menus = [
     {
         icon: 'el-icon-s-tools',
         index: '9',
         title: '基础信息管理',
+        jurisdiction: true,
         subs: [
             {
                 index: '9-2',
@@ -136,3 +139,14 @@ export default [
         ]
     }
 ]
+const userList = ['ludan', 'lixiaozhan'];
+const _flag = userList.includes(localStorage.getItem('ms_username'));
+if(_flag){
+    menuList = menus.filter(k => k.jurisdiction == true);
+} else if (localStorage.getItem('ms_username') == 'admin') {
+    menuList = menus;
+} else {
+    menuList = [];
+}
+
+export default menuList;
