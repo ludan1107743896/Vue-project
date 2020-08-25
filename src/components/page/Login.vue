@@ -51,7 +51,7 @@ export default {
                         this.$message.success('登录成功');
                         window.location.href = `${window.location.origin}/storeManagement`
                     } else {
-                        this.$router.push('/login');
+                        this.$message.error('登录失败,忘记告诉你得输入账号密码了。');
                     }
                 } else {
                     this.$message.error('请输入账号和密码');
