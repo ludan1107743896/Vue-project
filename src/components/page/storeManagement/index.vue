@@ -4,7 +4,7 @@
         <div class="container">
             <el-row style=" margin-bottom: 23px;">
                 <el-col :span="8" :offset="16">
-                    <el-button type="primary">添加门店</el-button>
+                    <el-button type="primary" @click="handleClickAdd">添加门店</el-button>
                     <el-button type="primary">一键上线</el-button>
                     <el-button type="primary">一键下线</el-button>
                     <el-button type="primary">重置刷新</el-button>
@@ -112,6 +112,7 @@ export default {
             tableData: tableSource,
             modalVsible: false,
             formLabelWidth: '120px',
+            addType: '',
             form: {
                 name: '',
                 position: [],
@@ -126,11 +127,11 @@ export default {
             },
             rules: {
                 name: [{ required: true, message: '门店名称', trigger: 'blur' }],
-                address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
-                date1: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
-                date2: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
-                measure: [{ required: true, message: '请输入面积', trigger: 'change' }],
-                position: [{ required: true, message: '请输入位置', trigger: 'blur' }],
+                // address: [{ required: true, message: '请输入地址', trigger: 'blur' }],
+                // date1: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
+                // date2: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
+                // measure: [{ required: true, message: '请输入面积', trigger: 'change' }],
+                // position: [{ required: true, message: '请输入位置', trigger: 'blur' }],
             },
             value: [],
             options: [
@@ -416,15 +417,38 @@ export default {
         },
         handleOnok() {
             this.$refs['ruleForm'].validate((valid) => {
-                console.log(valid, '111')
                 if(valid){
                     this.form.date1 = moment(this.form.data1).format('YYYY-MM-MM')
                     this.form.date2 = moment(this.form.data2).format('YYYY-MM-MM')
-                    console.log(this.form)
-                    // this.modalVsible = false;
+                    if (this.addType == '') {
+                        console.log(this.form, '1')
+                        console.log('此时做修改交易');
+                    } else {
+                        console.log('此时做添加逻辑')
+                        console.log(this.form, '2')
+                        this.addType = '';
+                    }
                 } else {
                     return false;
                 }
+            })
+        },
+        handleClickAdd() {
+            this.form = {
+                name: '',
+                position: [],
+                address: '',
+                date1: '',
+                date2: '',
+                measure: '',
+                phoneNum: '',
+                relese: '',
+                mark: '',
+                file: {}
+            }
+            this.$nextTick(() => {
+                this.modalVsible = true;
+                this.addType = 'add';
             })
         }
     }
