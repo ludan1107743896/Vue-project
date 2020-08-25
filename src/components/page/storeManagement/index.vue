@@ -106,7 +106,9 @@
 <script>
 import breadCrumb from './breadcrumb.vue';
 import tableSource from './tableSource';
-import moment from 'moment'
+import moment from 'moment';
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -405,6 +407,11 @@ export default {
                 }
             ]
         };
+    },
+    mounted() {
+        axios.get('/user/info').then(res => {
+            console.log(res, '-----res----')
+        })
     },
     components: {
         breadCrumb
