@@ -48,7 +48,6 @@ export default {
                 if (valid) {
                     const userName = this.param.username
                     localStorage.setItem('ms_username', userName);
-                    console.log(config.userList.includes(userName), '111')
                     if (config.userList.includes(userName)){
                         this.$message.success('登录成功');
                         window.location.href = `${window.location.origin}/storeManagement`
