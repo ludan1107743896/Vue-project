@@ -47,7 +47,7 @@ export default {
                 if (valid) {
                     this.$message.success('登录成功');
                     localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/');
+                    this.$router.push('/dashboard');
                 } else {
                     this.$message.error('请输入账号和密码');
                     console.log('error submit!!');
