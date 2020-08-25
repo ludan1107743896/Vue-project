@@ -1,5 +1,26 @@
 export default [
     {
+        icon: 'el-icon-s-tools',
+        index: '9',
+        title: '基础信息管理',
+        subs: [
+            {
+                index: '9-2',
+                title: '基础配置',
+                subs: [
+                    {
+                        index: "storeManagement",
+                        title: '店铺管理'
+                    },
+                    {
+                        index: "instrumentManagement",
+                        title: '仪器管理'
+                    }
+                ]
+            },
+        ]
+    },
+    {
         icon: 'el-icon-lx-home',
         index: 'dashboard',
         title: '系统首页'
@@ -111,10 +132,7 @@ export default [
                 index: "management",
                 title: '业务界面1'
             },
-            {
-                index: "storeManagement",
-                title: '商铺管理'
-            }
+           
         ]
     }
 ]

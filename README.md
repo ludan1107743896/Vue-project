@@ -18,7 +18,7 @@
 
 基于 Vue + Element UI 的后台管理系统解决方案。
 
-> React + Ant Design 的版本正在开发中，仓库地址：[Vue-project](https://github.com/ludan1107743896/Vue-project)
+> Element UI 的版本正在开发中，仓库地址：[Vue + Element UI](https://github.com/ludan1107743896/Vue-project)
 
 ## 前言
 

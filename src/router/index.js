@@ -116,6 +116,11 @@ export default new Router({
                     path: '/storeManagement',
                     meta: {title: '商铺管理'},
                     component: () => import('../components/page/storeManagement/index.vue')
+                },
+                {
+                    path: '/instrumentManagement',
+                    meta: {title: '仪器管理'},
+                    component: () => import('../components/page/instrumentManagement/index.vue')
                 }
             ]
         },
