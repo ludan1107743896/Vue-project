@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log('submit!');
+            this.$emit('callbackSearchItem', this.formInline);
         }
     }
 };
