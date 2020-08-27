@@ -5,9 +5,9 @@
         </el-form-item>
         <el-form-item label="状态">
             <el-select v-model="formInline.status" placeholder="选择状态">
-                <el-option label="全部" value="all"></el-option>
-                <el-option label="上线" value="up"></el-option>
-                <el-option label="下线" value="down"></el-option>
+                <el-option label="全部" value=""></el-option>
+                <el-option label="上线" value="S01"></el-option>
+                <el-option label="下线" value="S02"></el-option>
             </el-select>
         </el-form-item>
         <el-form-item>
