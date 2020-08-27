@@ -13,6 +13,8 @@ import './components/common/directives';
 import 'babel-polyfill';
 import echarts from 'echarts'
 
+require('./mock/api')
+
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false;
 Vue.use(Vuex);

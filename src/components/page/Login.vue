@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import config from '../../utils/config.js'
 export default {
     data: function() {
         return {
@@ -45,9 +46,14 @@ export default {
         submitForm() {
             this.$refs.login.validate(valid => {
                 if (valid) {
-                    this.$message.success('登录成功');
-                    localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/');
+                    const userName = this.param.username
+                    localStorage.setItem('ms_username', userName);
+                    if (config.userList.includes(userName)){
+                        this.$message.success('登录成功');
+                        window.location.href = `${window.location.origin}/storeManagement`
+                    } else {
+                        this.$message.error('登录失败,忘记告诉你得输入账号密码了。');
+                    }
                 } else {
                     this.$message.error('请输入账号和密码');
                     console.log('error submit!!');
