@@ -122,6 +122,11 @@ export default new Router({
                     path: '/instrumentManagement',
                     meta: {title: '仪器管理'},
                     component: () => import('../components/page/instrumentManagement/index.vue')
+                },
+                {
+                    path: '/customerInquiry',
+                    meta: {title: '客户自定义查询'},
+                    component: () => import('../components/page/customerInquiry/index.vue')
                 }
             ]
         },
