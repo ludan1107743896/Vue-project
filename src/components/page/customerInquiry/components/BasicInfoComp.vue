@@ -1,44 +1,23 @@
 <template>
     <div>
-        <el-form ref="form" :model="form" label-width="80px">
+        <el-form ref="form" :model="serchItem" label-width="80px">
             <el-row :gutter="20">
                 <el-col :span="6">
                     <el-form-item label="名称" prop="name">
-                        <el-input v-model="form.name"></el-input>
+                        <el-input v-model="serchItem.name"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="5">
                     <el-form-item label="性别" prop="resource">
-                        <el-radio-group v-model="form.resource">
-                            <el-radio label="男"></el-radio>
-                            <el-radio label="女"></el-radio>
+                        <el-radio-group v-model="serchItem.resource">
+                            <el-radio label="1">男</el-radio>
+                            <el-radio label="0">女</el-radio>
                         </el-radio-group>
                     </el-form-item>
                 </el-col>
-                <el-col :span="8">
-                    <el-form-item label="活动时间">
-                        <el-col :span="11" required>
-                            <el-date-picker
-                                type="date"
-                                placeholder="选择日期"
-                                v-model="form.date1"
-                                style="width: 100%;"
-                            ></el-date-picker>
-                        </el-col>
-                        <el-col class="line" :span="2">-</el-col>
-                        <el-col :span="11">
-                            <el-date-picker
-                                type="date"
-                                placeholder="选择日期"
-                                v-model="form.date2"
-                                style="width: 100%;"
-                            ></el-date-picker>
-                        </el-col>
-                    </el-form-item>
-                </el-col>
                 <el-col :span="5">
-                    <el-button type="primary">重置</el-button>
-                    <el-button>查找</el-button>
+                    <el-button type="primary" @click="handleRest">重置</el-button>
+                    <el-button @click="handleSearch">查找</el-button>
                 </el-col>
             </el-row>
         </el-form>
@@ -90,8 +69,13 @@ export default {
     data() {
         return {
             tableData: [],
+            restTableData: [],
             modalVsible: false,
             formLabelWidth: '120px',
+            serchItem: {
+                name: '',
+                resource: ''
+            },
             form: {
                 name: '',
                 cardnumber: '',
@@ -107,6 +91,29 @@ export default {
         };
     },
     methods: {
+        handleSearch() {
+            let list = [];
+            if (this.serchItem.name != '') {
+                list = this.tableData.filter(k => this.serchItem.name == k.name);
+            }
+            else if (this.serchItem.resource != '') {
+                list = this.tableData.filter(k => k.six == this.serchItem.resource);
+                console.log()
+            }
+            else if (this.serchItem.name != '' && this.serchItem.resource != '') {
+                const list1 = this.tableData.filter(k => this.serchItem.name == k.name);
+                const _list = list1.filter(k => k.six == this.serchItem.resource);
+                list = _list;
+            }
+            this.tableData = list;
+        },
+        handleRest() {
+            this.serchItem = {
+                name: '',
+                resource: ''
+            }
+            this.tableData = this.restTableData;
+        },
         handleOnok() {
             this.$refs['ruleForm'].validate((valid) => {
                 if (valid) {
@@ -133,6 +140,7 @@ export default {
     mounted() {
         axios.get('/user/infoList').then((res) => {
             this.tableData = res.data;
+            this.restTableData = res.data;
         });
     }
 };
