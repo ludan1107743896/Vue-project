@@ -18,6 +18,10 @@ const menus = [
                     {
                         index: "instrumentManagement",
                         title: '仪器管理'
+                    },
+                    {
+                        index: "userData",
+                        title: "用户信息"
                     }
                 ]
             },

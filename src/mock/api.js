@@ -18,7 +18,9 @@ function getItem (type) {
     case 'increment':
       return Random.increment(100);
     case 'integer':
-      return Random.integer(60,100)
+      return Random.integer(60,100);
+    case 'email':
+      return Random.email(); 
     default:
       return getStates(type);
   }
@@ -59,7 +61,8 @@ const simulateData = getDataSource(8, {
   city: "city",
   img: 'image', 
   content: 'cparagraph',
-  id: 'guid'
+  id: 'guid',
+
 })
 
 
@@ -71,4 +74,12 @@ Mock.mock('/instrumentManagement/tableList', getDataSource(10, {
   priseGold: 'integer',
   numCount: 'integer',
   status: ['S01', "S02", "S03"],
+}))
+//用户数据
+Mock.mock('/userData/personList', getDataSource(6, {
+  date: 'data', 
+  name: 'cname',
+  city: "city",
+  age:'integer',
+  email:'email'
 }))
