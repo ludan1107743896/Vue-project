@@ -6,7 +6,9 @@
                 <el-tab-pane label="基本信息" name="basicInfo">
                     <BasicInfoComp />
                 </el-tab-pane>
-                <el-tab-pane label="报单" name="form">报单</el-tab-pane>
+                <el-tab-pane label="报单" name="form">
+                    <StepComp />
+                </el-tab-pane>
                 <el-tab-pane label="上门" name="goupdoor">上门</el-tab-pane>
                 <el-tab-pane label="购买方案" name="buy">购买方案</el-tab-pane>
                 <el-tab-pane label="成交" name="success">成交</el-tab-pane>
@@ -20,6 +22,7 @@
 <script>
 import breadCrumb from '../storeManagement/breadcrumb.vue';
 import BasicInfoComp from './components/BasicInfoComp.vue';
+import StepComp from './components/StepComp.vue';
 export default {
     data() {
         return {
@@ -35,6 +38,7 @@ export default {
     components: {
         breadCrumb,
         BasicInfoComp,
+        StepComp,
     }
 };
 </script>
