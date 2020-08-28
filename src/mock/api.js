@@ -75,7 +75,15 @@ Mock.mock('/instrumentManagement/tableList', getDataSource(10, {
   numCount: 'integer',
   status: ['S01', "S02", "S03"],
 }))
+
 //用户数据
+Mock.mock('/user/infoList', getDataSource(10, {
+  name: 'cname',
+  cardnumber: 'guid',
+  phoneNum: ['15133077580', '15133077581', '15133077584'],
+  six: ['0', '1'],
+}))
+// 用户信息列表
 Mock.mock('/userData/personList', getDataSource(6, {
   date: 'data', 
   name: 'cname',
@@ -83,3 +91,6 @@ Mock.mock('/userData/personList', getDataSource(6, {
   age:'integer',
   email:'email'
 }))
+
+
+

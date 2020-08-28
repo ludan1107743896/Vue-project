@@ -28,6 +28,18 @@ const menus = [
         ]
     },
     {
+        icon: 'el-icon-s-goods',
+        index: '10',
+        title: '客户管理',
+        jurisdiction: true,
+        subs: [
+            {
+                index: "customerInquiry",
+                title: '客户自定义查询'
+            },
+        ]
+    },
+    {
         icon: 'el-icon-lx-home',
         index: 'dashboard',
         title: '系统首页'

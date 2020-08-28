@@ -127,7 +127,13 @@ export default new Router({
                     path: '/userData',
                     meta: {title: '用户信息'},
                     component: () => import('../components/page/userData/model.vue')
+                },
+                {
+                    path: '/customerInquiry',
+                    meta: {title: '客户自定义查询'},
+                    component: () => import('../components/page/customerInquiry/index.vue')
                 }
+               
             ]
         },
         {
