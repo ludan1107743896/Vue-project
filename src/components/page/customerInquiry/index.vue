@@ -9,7 +9,9 @@
                 <el-tab-pane label="报单" name="form">
                     <StepComp />
                 </el-tab-pane>
-                <el-tab-pane label="上门" name="goupdoor">上门</el-tab-pane>
+                <el-tab-pane label="上门" name="goupdoor">
+                    <Statistics />
+                </el-tab-pane>
                 <el-tab-pane label="购买方案" name="buy">购买方案</el-tab-pane>
                 <el-tab-pane label="成交" name="success">成交</el-tab-pane>
                 <el-tab-pane label="操作" name="options">操作</el-tab-pane>
@@ -23,6 +25,7 @@
 import breadCrumb from '../storeManagement/breadcrumb.vue';
 import BasicInfoComp from './components/BasicInfoComp.vue';
 import StepComp from './components/StepComp.vue';
+import Statistics from './components/Statistics.vue'
 export default {
     data() {
         return {
@@ -39,6 +42,7 @@ export default {
         breadCrumb,
         BasicInfoComp,
         StepComp,
+        Statistics,
     }
 };
 </script>
