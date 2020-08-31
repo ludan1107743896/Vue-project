@@ -132,8 +132,12 @@ export default new Router({
                     path: '/customerInquiry',
                     meta: {title: '客户自定义查询'},
                     component: () => import('../components/page/customerInquiry/index.vue')
+                },
+                {
+                    path: '/editor',
+                    meta: {title: '客户自定义查询'},
+                    component: () => import('../components/page/editorBox/index.vue')
                 }
-               
             ]
         },
         {
