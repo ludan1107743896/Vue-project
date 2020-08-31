@@ -137,6 +137,11 @@ export default new Router({
                     path: '/editor',
                     meta: {title: '客户自定义查询'},
                     component: () => import('../components/page/editorBox/index.vue')
+                },
+                {
+                    path: '/specialOptions',
+                    mate: {title: 'Vue 特殊用法'},
+                    component: () => import('../components/page/specialOptions/index.vue')
                 }
             ]
         },

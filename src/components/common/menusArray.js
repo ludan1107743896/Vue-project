@@ -40,6 +40,18 @@ const menus = [
         ]
     },
     {
+        icon: 'el-icon-s-goods',
+        index: '11',
+        title: 'Vue特殊操作',
+        jurisdiction: true,
+        subs: [
+            {
+                index: "specialOptions",
+                title: 'vue 特殊操作'
+            },
+        ]
+    },
+    {
         icon: 'el-icon-lx-home',
         index: 'dashboard',
         title: '系统首页'
