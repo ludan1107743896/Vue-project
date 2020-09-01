@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-box">
         <keep-alive>
             <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="组件一" name="first">
