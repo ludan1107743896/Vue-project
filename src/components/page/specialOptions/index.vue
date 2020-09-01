@@ -16,12 +16,12 @@
                 <el-collapse-item title="公用法法mixin用法" name="4" >
                     <mixinsComp />
                 </el-collapse-item>
-                <el-collapse-item title="slot插槽用法" name="4">
+                <el-collapse-item title="slot插槽用法" name="5">
                     <slotComp>
                         {{slotTitle}}
                     </slotComp>
                 </el-collapse-item>
-                <el-collapse-item title="缓存组件keep-alive" name="4" >
+                <el-collapse-item title="缓存组件keep-alive" name="6">
                     <keepAlice />
                 </el-collapse-item>
             </el-collapse>
@@ -42,7 +42,7 @@ export default {
     data() {
         return {
             name: '这里输入数据',
-            activeNames: ['1', "2", "3", "4"],
+            activeNames: ['1', "2", "3", "4", "5", "6"],
             title: ['首页', 'vue特殊交易'],
             slotTitle: '------这是一段string内容-----'
         };
