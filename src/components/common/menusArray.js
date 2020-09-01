@@ -49,6 +49,10 @@ const menus = [
                 index: "specialOptions",
                 title: 'vue 特殊操作'
             },
+            {
+                index: "vueCssTransition",
+                title: 'vue 动画操作'
+            },
         ]
     },
     {
