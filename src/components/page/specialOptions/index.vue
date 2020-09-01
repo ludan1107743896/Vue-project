@@ -17,7 +17,9 @@
                     <mixinsComp />
                 </el-collapse-item>
                 <el-collapse-item title="slot插槽用法" name="4">
-                    <slotComp />
+                    <slotComp>
+                        {{slotTitle}}
+                    </slotComp>
                 </el-collapse-item>
                 <el-collapse-item title="缓存组件keep-alive" name="4" >
                     <keepAlice />
@@ -41,7 +43,8 @@ export default {
         return {
             name: '这里输入数据',
             activeNames: ['1', "2", "3", "4"],
-            title: ['首页', 'vue特殊交易']
+            title: ['首页', 'vue特殊交易'],
+            slotTitle: '------这是一段string内容-----'
         };
     },
     components: {
