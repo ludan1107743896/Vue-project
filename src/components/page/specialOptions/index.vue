@@ -17,10 +17,10 @@
                     <mixinsComp />
                 </el-collapse-item>
                 <el-collapse-item title="slot插槽用法" name="4">
-                    
+                    <slotComp />
                 </el-collapse-item>
                 <el-collapse-item title="缓存组件keep-alive" name="4" >
-                    
+                    <keepAlice />
                 </el-collapse-item>
             </el-collapse>
         </div>
@@ -32,7 +32,9 @@ import breadCrumb from '../storeManagement/breadcrumb';
 import viewModal from './components/viewModal.vue';
 import nextTick from './components/nextTick.vue';
 import componentView from './components/componentView.vue';
-import mixinsComp from './components/mixinsComp.vue'
+import mixinsComp from './components/mixinsComp.vue';
+import slotComp from './components/slotComp.vue';
+import keepAlice from './components/keepAlice.vue';
 
 export default {
     data() {
@@ -47,7 +49,9 @@ export default {
         viewModal,
         nextTick,
         componentView,
-        mixinsComp
+        mixinsComp,
+        slotComp,
+        keepAlice,
     },
     methods: {
         handleChange(val) {
