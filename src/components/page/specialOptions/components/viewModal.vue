@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-box">
         <input :value="text1" @input="$emit('change', $event.target.value)" class="input"/>
     </div>
 </template>
