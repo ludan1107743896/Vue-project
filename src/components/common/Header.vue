@@ -5,7 +5,10 @@
             <i v-if="!collapse" class="el-icon-s-fold"></i>
             <i v-else class="el-icon-s-unfold"></i>
         </div>
-        <div class="logo">后台管理系统</div>
+        <div class="logo">
+            <img src="../../assets/img/logo.png" class="logo-img"/>
+            <span class="logo-title">后台管理系统</span>
+        </div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -114,6 +117,14 @@ export default {
 };
 </script>
 <style scoped>
+.logo-img {
+    width: 40px;
+    position: absolute;
+    margin-top: 14px;
+}
+.logo-title {
+    margin-left: 47px;
+}
 .header {
     position: relative;
     box-sizing: border-box;
