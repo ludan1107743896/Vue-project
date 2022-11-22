@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
+    "@vue/cli-service": "^5.0.8",
     "echarts": "^4.8.0",
     "mockjs": "^1.1.0",
     "moment": "^2.27.0",
